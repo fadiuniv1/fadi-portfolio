@@ -1,8 +1,10 @@
 /* Basic Styling -  Expand with Tailwind or custom styles as needed */
 body {
-    font-family: sans-serif;
+    font-family: 'Roboto', sans-serif;
     margin: 0;
     overflow-x: hidden; /* Prevent horizontal scroll */
+    background-color: #121212;
+    color: #e0e0e0;
 }
 
 nav {
@@ -35,12 +37,27 @@ nav li {
 
 nav a {
     text-decoration: none;
-    color: white;
-    transition: color 0.3s ease;
+    color: #e0e0e0;
+    padding: 10px 20px;
+    transition: color 0.3s ease, background-color 0.3s ease;
 }
 
 nav a:hover {
     color: #ff6347; /* Change color on hover */
+    background-color: #333;
+    border-radius: 5px;
+}
+
+header {
+    background: linear-gradient(to right, #ff6347, #e5533d);
+    padding: 20px 0;
+    text-align: center;
+    color: white;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5em;
 }
 
 section {
@@ -48,10 +65,47 @@ section {
     text-align: center;
 }
 
+#hero {
+    background: url('hero-bg.jpg') no-repeat center center/cover;
+    color: white;
+    padding: 100px 0;
+}
+
+#hero h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
+}
+
+#hero h2 {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
+
+#hero button {
+    margin: 10px;
+}
+
 .skill-grid, .project-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;
+}
+
+.skill-item, .project-item {
+    background: #1e1e1e;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.skill-item:hover, .project-item:hover {
+    transform: translateY(-10px);
+}
+
+.project-item img {
+    width: 100%;
+    border-radius: 10px;
 }
 
 button {
@@ -73,6 +127,8 @@ form input, form textarea {
     margin: 10px 0;
     border: 1px solid #ccc;
     border-radius: 5px;
+    background-color: #333;
+    color: #e0e0e0;
 }
 
 form button {
@@ -97,14 +153,32 @@ form button:hover {
     transition: color 0.3s ease;
 }
 
-.social-links a:hover {
+social-links a:hover {
     color: #e5533d;
 }
 
 /* Add more styles as needed */
-#scrollTop{
+footer {
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+}
+
+#scrollTop {
     position: fixed;
     bottom: 20px;
     right: 20px;
+    background-color: #ff6347;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#scrollTop:hover {
+    background-color: #e5533d;
 }
 

@@ -30,4 +30,4 @@ This is the personal portfolio website of Fadi [Last Name], a passionate softwar
 
 ## Contact
 
-For any inquiries, please reach out via the contact form on the website or connect with me on [LinkedIn](https://www.linkedin.com/in/your-linkedin) and [GitHub](https://github.com/your-github).
+For any inquiries, please reach out via the contact form on the website or connect with me on [LinkedIn](https://www.linkedin.com/in/fadi1as) and [GitHub](https://github.com/fadiuniv1).
