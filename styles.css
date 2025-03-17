@@ -36,6 +36,11 @@ nav li {
 nav a {
     text-decoration: none;
     color: white;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #ff6347; /* Change color on hover */
 }
 
 section {
@@ -49,6 +54,52 @@ section {
     gap: 20px;
 }
 
+button {
+    background-color: #ff6347;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #e5533d; /* Darker shade on hover */
+}
+
+form input, form textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #ff6347;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+form button:hover {
+    background-color: #e5533d;
+}
+
+.social-links a {
+    color: #ff6347;
+    margin: 0 10px;
+    font-size: 24px;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: #e5533d;
+}
 
 /* Add more styles as needed */
 #scrollTop{
