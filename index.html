@@ -4,14 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fadi's Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
-    <script defer src="script.js"></script>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
-        <h1>Fadi As</h1>
         <nav>
             <ul>
+                <li><a href="#hero">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#projects">Projects</a></li>
@@ -19,37 +18,71 @@
             </ul>
         </nav>
     </header>
-    
+
+    <section id="hero">
+        <h1>Fadi As</h1>
+        <h2>Software Engineer | Android Developer</h2>
+        <p>Building mobile & web solutions</p>
+        <button>View GitHub</button>
+        <button>Contact Me</button>
+    </section>
+
     <section id="about">
         <h2>About Me</h2>
-        <p>Hi, I'm Fadi, a software engineer and Android developer. I'm currently studying for a BSc in Computer Science at Tel Hai Academic College. I love technology and constantly strive to improve my skills.</p>
+        <img src="fadi.jpg" alt="Fadi's Photo">
+        <p>My bio here...</p>
+        <div class="skills-showcase">
+            <span class="skill">Java</span>
+            <span class="skill">C++</span>
+            <span class="skill">Python</span>
+            <!-- Add more skills -->
+        </div>
     </section>
-    
+
     <section id="skills">
         <h2>Skills</h2>
-        <ul>
-            <li>Java, C, C++, C#, Python, SQL, HTML, CSS, JavaScript</li>
-            <li>Android Development with Java</li>
-            <li>Git, GitHub, Linux (basic)</li>
-            <li>Social Media Marketing</li>
-        </ul>
+        <div class="skill-grid">
+            <div class="skill-item">Java</div>
+            <div class="skill-item">C++</div>
+            <div class="skill-item">Python</div>
+            <div class="skill-item">Android Studio</div>
+            <!-- Add more skills -->
+        </div>
     </section>
-    
+
     <section id="projects">
         <h2>Projects</h2>
-        <p>Coming soon...</p>
+        <div class="project-grid">
+            <div class="project-item">
+                <img src="project1.jpg" alt="Project 1">
+                <h3>Project Title 1</h3>
+                <p>Short description</p>
+                <a href="#">Demo</a>
+                <a href="#">GitHub</a>
+            </div>
+            <!-- Add more projects -->
+        </div>
     </section>
-    
+
     <section id="contact">
         <h2>Contact</h2>
-        <p>Email: <a href="mailto:fadiuniv1@gmail.com">fadiuniv1@gmail.com</a></p>
-        <p>LinkedIn: <a href="https://www.linkedin.com/in/fadi1as" target="_blank">linkedin.com/in/fadi1as</a></p>
-        <p>GitHub: <a href="https://github.com/fadiuniv1" target="_blank">github.com/fadiuniv1</a></p>
-        <p>YouTube: <a href="https://youtube.com/@snow2master" target="_blank">youtube.com/@snow2master</a></p>
+        <form>
+            <input type="text" placeholder="Name">
+            <input type="email" placeholder="Email">
+            <textarea placeholder="Message"></textarea>
+            <button type="submit">Send</button>
+        </form>
+        <div class="social-links">
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+            <!-- Add other social links -->
+        </div>
     </section>
-    
+
     <footer>
         <p>&copy; 2025 Fadi As. All rights reserved.</p>
+        <button id="scrollTop">Top</button>
     </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
