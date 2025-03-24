@@ -1,184 +1,101 @@
-/* Basic Styling -  Expand with Tailwind or custom styles as needed */
+/* Custom CSS for Fadi's Portfolio */
+:root {
+    --bg-primary: #0a192f;
+    --text-primary: #8892b0;
+    --text-highlight: #64ffda;
+    --bg-secondary: #112240;
+    --text-white: #e6f1ff;
+}
+
+/* Smooth scroll behavior */
+html {
+    scroll-behavior: smooth;
+}
+
 body {
-    font-family: 'Roboto', sans-serif;
-    margin: 0;
-    overflow-x: hidden; /* Prevent horizontal scroll */
-    background-color: #121212;
-    color: #e0e0e0;
+    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    line-height: 1.6;
 }
 
-nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-color: transparent; /* Initially transparent */
-    transition: background-color 0.5s ease; /* Smooth transition for background change */
-    z-index: 100; /* Ensure it stays on top */
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 12px;
 }
 
-nav.solid {
-    background-color: rgba(0,0,0,0.8); /* Solid background on scroll */
+::-webkit-scrollbar-track {
+    background: var(--bg-primary);
 }
 
-nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 60px;
+::-webkit-scrollbar-thumb {
+    background: var(--bg-secondary);
+    border-radius: 6px;
 }
 
-nav li {
-    margin: 0 20px;
+::-webkit-scrollbar-thumb:hover {
+    background: var(--text-highlight);
 }
 
-nav a {
-    text-decoration: none;
-    color: #e0e0e0;
-    padding: 10px 20px;
-    transition: color 0.3s ease, background-color 0.3s ease;
+/* Typing animation for hero section */
+.typing-demo {
+    width: 22ch;
+    animation: typing 2s steps(22), blink .5s step-end infinite alternate;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 3px solid var(--text-highlight);
 }
 
-nav a:hover {
-    color: #ff6347; /* Change color on hover */
-    background-color: #333;
-    border-radius: 5px;
+@keyframes typing {
+    from {
+        width: 0
+    }
+}
+    
+@keyframes blink {
+    50% {
+        border-color: transparent
+    }
 }
 
-header {
-    background: linear-gradient(to right, #ff6347, #e5533d);
-    padding: 20px 0;
-    text-align: center;
-    color: white;
-}
-
-header h1 {
-    margin: 0;
-    font-size: 2.5em;
-}
-
-section {
-    padding: 50px 0;
-    text-align: center;
-}
-
-#hero {
-    background: url('hero-bg.jpg') no-repeat center center/cover;
-    color: white;
-    padding: 100px 0;
-}
-
-#hero h1 {
-    font-size: 3em;
-    margin-bottom: 10px;
-}
-
-#hero h2 {
-    font-size: 1.5em;
-    margin-bottom: 20px;
-}
-
-#hero button {
-    margin: 10px;
-}
-
-.skill-grid, .project-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-}
-
-.skill-item, .project-item {
-    background: #1e1e1e;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+/* Hover effects */
+.project-card {
     transition: transform 0.3s ease;
 }
 
-.skill-item:hover, .project-item:hover {
+.project-card:hover {
     transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
 }
 
-.project-item img {
-    width: 100%;
-    border-radius: 10px;
-}
-
-button {
-    background-color: #ff6347;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-button:hover {
-    background-color: #e5533d; /* Darker shade on hover */
-}
-
-form input, form textarea {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
+/* Skill progress bars */
+.skill-bar {
+    background-color: var(--bg-secondary);
+    height: 10px;
     border-radius: 5px;
-    background-color: #333;
-    color: #e0e0e0;
+    overflow: hidden;
 }
 
-form button {
-    width: 100%;
-    padding: 10px;
-    background-color: #ff6347;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+.skill-bar-fill {
+    height: 100%;
+    background-color: var(--text-highlight);
+    transition: width 1s ease-in-out;
 }
 
-form button:hover {
-    background-color: #e5533d;
+/* Subtle background pattern */
+.bg-pattern {
+    background-image: 
+        linear-gradient(rgba(10, 25, 47, 0.9), rgba(10, 25, 47, 0.9)),
+        repeating-linear-gradient(0deg, transparent, transparent 10px, rgba(100, 255, 218, 0.05) 10px, rgba(100, 255, 218, 0.05) 20px);
 }
 
-.social-links a {
-    color: #ff6347;
-    margin: 0 10px;
-    font-size: 24px;
-    transition: color 0.3s ease;
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .hero-section {
+        text-align: center;
+    }
+    
+    .social-links {
+        justify-content: center;
+    }
 }
-
-social-links a:hover {
-    color: #e5533d;
-}
-
-/* Add more styles as needed */
-footer {
-    background: #333;
-    color: white;
-    text-align: center;
-    padding: 20px 0;
-}
-
-#scrollTop {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background-color: #ff6347;
-    color: white;
-    border: none;
-    padding: 10px;
-    border-radius: 50%;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-#scrollTop:hover {
-    background-color: #e5533d;
-}
-

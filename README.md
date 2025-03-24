@@ -1,6 +1,6 @@
-# Fadi's Portfolio
+# Fadi Abu Saleh's Portfolio
 
-This is the personal portfolio website of Fadi [Last Name], a passionate software developer with a strong focus on backend development and object-oriented programming. The website showcases Fadi's skills, projects, and contact information.
+Welcome to the personal portfolio website of Fadi Abu Saleh, a dedicated software engineer with a strong focus on mobile and web development. This website showcases my skills, projects, and contact information.
 
 ## Technologies Used
 
@@ -12,13 +12,13 @@ This is the personal portfolio website of Fadi [Last Name], a passionate softwar
 
 - Smooth scrolling navigation
 - Responsive design
-- Contact form
+- Contact form with validation
 - Links to social media profiles
 
 ## Sections
 
 - **Home**: Introduction and links to GitHub and contact form.
-- **About**: Detailed information about Fadi's background and skills.
+- **About**: Detailed information about my background and skills.
 - **Skills**: Showcase of technical skills.
 - **Projects**: Gallery of projects with descriptions and links.
 - **Contact**: Contact form and social media links.
