@@ -1,123 +1,81 @@
-// Portfolio Interactive Features
+// Portfolio interactions — no dependencies.
 document.addEventListener('DOMContentLoaded', () => {
-    // Typing Effect
-    function typeWriter(element, text, speed = 100) {
-        let i = 0;
-        element.classList.add('typing-demo'); // Add this line
-        function type() {
-            if (i < text.length) {
-                element.innerHTML += text.charAt(i);
-                i++;
-                setTimeout(type, speed);
-            }
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // Typewriter subtitle
+    const subtitle = document.getElementById('hero-subtitle');
+    if (subtitle) {
+        const phrases = [
+            'Software Engineer & Developer Tools Builder',
+            'Linux Automation & Local-first AI',
+            'Open to Junior Software / Platform Roles',
+        ];
+        if (reduceMotion) {
+            subtitle.textContent = phrases[0];
+        } else {
+            subtitle.classList.add('typing-demo');
+            let phrase = 0;
+            let char = 0;
+            let deleting = false;
+            const tick = () => {
+                const text = phrases[phrase];
+                char += deleting ? -1 : 1;
+                subtitle.textContent = text.slice(0, char);
+                let delay = deleting ? 30 : 60;
+                if (!deleting && char === text.length) {
+                    deleting = true;
+                    delay = 1800;
+                } else if (deleting && char === 0) {
+                    deleting = false;
+                    phrase = (phrase + 1) % phrases.length;
+                    delay = 350;
+                }
+                setTimeout(tick, delay);
+            };
+            setTimeout(tick, 500);
         }
-        type();
     }
 
-    // Skill Progress Bar Animation
-    function animateSkillBars() {
-        const skillBars = document.querySelectorAll('.skill-bar-fill');
-        skillBars.forEach(bar => {
-            const percentage = bar.getAttribute('data-percentage');
-            bar.style.width = `${percentage}%`;
-        });
-    }
-
-    // Scroll-triggered Animations
-    function scrollAnimations() {
-        const sections = document.querySelectorAll('.animate-section');
-        const options = {
-            threshold: 0.1
-        };
-
-        const observer = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
+    // Reveal sections on scroll
+    const sections = document.querySelectorAll('.animate-section');
+    if (reduceMotion || !('IntersectionObserver' in window)) {
+        sections.forEach((section) => section.classList.add('is-visible'));
+    } else {
+        const observer = new IntersectionObserver((entries, obs) => {
+            entries.forEach((entry) => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('is-visible');
-                    observer.unobserve(entry.target);
+                    obs.unobserve(entry.target);
                 }
             });
-        }, options);
+        }, { threshold: 0.08 });
+        sections.forEach((section) => observer.observe(section));
+    }
 
-        sections.forEach(section => {
-            observer.observe(section);
+    // Smooth anchor scrolling
+    document.querySelectorAll('a[href^="#"]').forEach((link) => {
+        link.addEventListener('click', (event) => {
+            const target = document.querySelector(link.getAttribute('href'));
+            if (!target) return;
+            event.preventDefault();
+            target.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth' });
         });
-    }
-
-    // Smooth Scroll to Sections
-    function smoothScroll() {
-        const navLinks = document.querySelectorAll('a[href^="#"]');
-        navLinks.forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                const targetId = link.getAttribute('href');
-                const targetSection = document.querySelector(targetId);
-                
-                targetSection.scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-    }
-
-    // Form Validation
-    function initContactForm() {
-        const contactForm = document.getElementById('contact-form');
-        if (contactForm) {
-            contactForm.addEventListener('submit', (e) => {
-                e.preventDefault();
-                const name = document.getElementById('name').value;
-                const email = document.getElementById('email').value;
-                const message = document.getElementById('message').value;
-
-                // Basic validation
-                if (name && email && message) {
-                    // Here you would typically send the form data
-                    alert('Message sent successfully! I will get back to you soon.');
-                    contactForm.reset();
-                } else {
-                    alert('Please fill in all fields');
-                }
-            });
-        }
-    }
-
-    // Dark Mode Toggle (Optional)
-    function initDarkModeToggle() {
-        const darkModeToggle = document.getElementById('dark-mode-toggle');
-        if (darkModeToggle) {
-            darkModeToggle.addEventListener('click', () => {
-                document.body.classList.toggle('dark-mode');
-            });
-        }
-    }
-
-    // Initialize all functions
-    function init() {
-        const heroSubtitle = document.getElementById('hero-subtitle');
-        if (heroSubtitle) {
-            typeWriter(heroSubtitle, "Software Developer & Tech Enthusiast");
-        }
-
-        animateSkillBars();
-        scrollAnimations();
-        smoothScroll();
-        initContactForm();
-        initDarkModeToggle();
-    }
-
-    // Run initialization
-    init();
-});
-
-// Optional: Simple project filter
-function filterProjects(category) {
-    const projects = document.querySelectorAll('.project-card');
-    projects.forEach(project => {
-        if (category === 'all' || project.classList.contains(category)) {
-            project.style.display = 'block';
-        } else {
-            project.style.display = 'none';
-        }
     });
-}
+
+    // Project filtering
+    const buttons = document.querySelectorAll('.filter-btn');
+    const cards = document.querySelectorAll('.project-card');
+    buttons.forEach((button) => {
+        button.addEventListener('click', () => {
+            const filter = button.dataset.filter;
+            buttons.forEach((btn) => btn.classList.toggle('active', btn === button));
+            cards.forEach((card) => {
+                card.hidden = filter !== 'all' && card.dataset.category !== filter;
+            });
+        });
+    });
+
+    // Footer year
+    const year = document.getElementById('year');
+    if (year) year.textContent = String(new Date().getFullYear());
+});

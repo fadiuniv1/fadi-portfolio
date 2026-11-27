@@ -3,174 +3,225 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fadi - Software Developer Portfolio</title>
+    <title>Fadi Abu Saleh — Software Engineer & Developer Tools</title>
+    <meta name="description" content="Fadi Abu Saleh is a software engineering student building zero-dependency developer tools, Linux automation and local-first AI systems.">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-    <style>
-        body {
-            background-color: #0a192f;
-            color: #8892b0;
-        }
-        .highlight {
-            color: #64ffda;
-        }
-        .nav-link:hover {
-            color: #64ffda;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body class="bg-[#0a192f] text-[#8892b0] font-sans">
     <div class="container mx-auto px-6 max-w-6xl">
-        <!-- Header & Navigation -->
+
+        <!-- Navigation -->
         <header class="flex justify-between items-center py-8">
-            <div class="text-2xl font-bold">
+            <a href="#top" class="text-2xl font-bold text-white">
                 <span class="highlight">&lt;</span>Fadi<span class="highlight">/&gt;</span>
-            </div>
-            <nav>
-                <ul class="flex space-x-6">
-                    <li><a href="#about" class="nav-link text-white hover:text-[#64ffda]">About</a></li>
-                    <li><a href="#skills" class="nav-link text-white hover:text-[#64ffda]">Skills</a></li>
-                    <li><a href="#projects" class="nav-link text-white hover:text-[#64ffda]">Projects</a></li>
-                    <li><a href="#contact" class="nav-link text-white hover:text-[#64ffda]">Contact</a></li>
+            </a>
+            <nav class="hidden md:block">
+                <ul class="flex space-x-6 text-sm">
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#projects" class="nav-link">Projects</a></li>
+                    <li><a href="#skills" class="nav-link">Skills</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
                 </ul>
             </nav>
         </header>
 
-        <!-- Hero Section -->
-        <section class="min-h-screen flex items-center">
-            <div>
-                <h1 class="text-[#64ffda] text-xl mb-4">Hi, my name is</h1>
-                <h2 class="text-white text-6xl font-bold mb-4">Fadi</h2>
-                <h3 id="hero-subtitle" class="text-[#8892b0] text-4xl mb-6"></h3> <!-- Update this line -->
-                <p class="max-w-2xl mb-8">
-                    I'm a passionate software developer specializing in Android development, Java, Python, and Linux. 
-                    Currently pursuing a B.Sc. in Computer Science, I'm dedicated to solving complex problems and 
-                    exploring cutting-edge technologies.
+        <!-- Hero -->
+        <section id="top" class="min-h-screen flex items-center animate-section">
+            <div class="max-w-3xl">
+                <p class="text-[#64ffda] text-sm tracking-widest mb-4">SOFTWARE ENGINEERING STUDENT · BUILDER</p>
+                <h1 class="text-white text-5xl md:text-7xl font-bold mb-3">Fadi Abu Saleh</h1>
+                <h2 id="hero-subtitle" class="text-[#64ffda] text-xl md:text-3xl mb-6 min-h-[2rem]"></h2>
+                <p class="mb-8 text-base md:text-lg">
+                    I build small, dependable tools for developers and systems — zero-dependency CLIs,
+                    Linux automation, and a local-first AI stack that runs on hardware you control.
+                    Currently studying software engineering at Tel-Hai Tech College and looking for a
+                    junior software, DevOps or platform role.
                 </p>
-                <a href="#contact" class="border border-[#64ffda] text-[#64ffda] px-6 py-4 rounded hover:bg-[#64ffda] hover:text-[#0a192f] transition">
-                    Get In Touch
-                </a>
+                <div class="flex flex-wrap gap-4">
+                    <a href="#projects" class="btn-primary">View Projects</a>
+                    <a href="mailto:fadiuniv1@gmail.com" class="btn-outline">Get In Touch</a>
+                    <a href="https://github.com/fadiuniv1" target="_blank" rel="noopener" class="btn-outline">
+                        <i class="fab fa-github mr-2"></i>GitHub
+                    </a>
+                </div>
+                <div class="flex flex-wrap gap-8 mt-12 stats">
+                    <div><span class="stat-number">4</span><span class="stat-label">original projects</span></div>
+                    <div><span class="stat-number">2</span><span class="stat-label">npm packages</span></div>
+                    <div><span class="stat-number">3</span><span class="stat-label">languages I work in</span></div>
+                    <div><span class="stat-number">2027</span><span class="stat-label">expected graduation</span></div>
+                </div>
             </div>
         </section>
 
-        <!-- About Section -->
-        <section id="about" class="mb-16">
-            <h2 class="text-white text-3xl mb-8">About Me</h2>
-            <div class="grid md:grid-cols-2 gap-8">
-                <div>
-                    <p class="mb-4">
-                        I'm a dedicated software developer with a passion for technology and continuous learning. 
-                        My background includes expertise in Android development, Java, Python, and Linux systems.
-                    </p>
-                    <p class="mb-4">
-                        Currently pursuing my B.Sc. in Computer Science, I've gained practical experience through 
-                        various projects and roles, including social media management and technical support.
+        <!-- About -->
+        <section id="about" class="py-16 animate-section">
+            <h2 class="section-title">About Me</h2>
+            <div class="grid md:grid-cols-2 gap-10">
+                <div class="space-y-4">
+                    <p>
+                        I'm a software engineering student at Tel-Hai Tech College (Oct 2025 – Aug 2027).
+                        I care about the unglamorous part of engineering: making systems reliable,
+                        making tools smaller, and making work reviewable.
                     </p>
                     <p>
-                        I'm always eager to collaborate on interesting projects and explore new technological challenges.
+                        Through the Tsofen–Tashbik IT program I built a cross-platform enterprise lab
+                        with Skyware Information Technologies — Windows Server and Ubuntu Server on
+                        Hyper-V, DHCP reservations, IIS, and PowerShell/Bash health checks with
+                        automatic recovery scheduled with Task Scheduler and systemd timers.
+                    </p>
+                    <p>
+                        Today I split my time between shipping developer tooling, working on a local-first
+                        Android + FastAPI agent stack, and learning in public. I speak English, Arabic and Hebrew.
                     </p>
                 </div>
                 <div class="grid grid-cols-2 gap-4">
-                    <div class="bg-[#112240] p-4 rounded">
-                        <h3 class="text-[#64ffda] font-bold">Programming</h3>
-                        <ul>
-                            <li>Java</li>
-                            <li>Python</li>
-                            <li>C/C++</li>
-                        </ul>
+                    <div class="info-card">
+                        <h3 class="info-card-title">Focus</h3>
+                        <ul><li>Developer tooling</li><li>Linux & automation</li><li>Local-first AI</li><li>Android / Kotlin</li></ul>
                     </div>
-                    <div class="bg-[#112240] p-4 rounded">
-                        <h3 class="text-[#64ffda] font-bold">Technologies</h3>
-                        <ul>
-                            <li>Android</li>
-                            <li>Linux</li>
-                            <li>Git & GitHub</li>
-                        </ul>
+                    <div class="info-card">
+                        <h3 class="info-card-title">Currently</h3>
+                        <ul><li>Tel-Hai Tech College</li><li>Open to junior roles</li><li>Kiryat Shmona, Israel</li><li>On-site · Hybrid · Remote</li></ul>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Skills Section -->
-        <section id="skills" class="mb-16">
-            <h2 class="text-white text-3xl mb-8">Skills</h2>
-            <div class="grid md:grid-cols-3 gap-6">
-                <div class="bg-[#112240] p-6 rounded">
-                    <h3 class="text-[#64ffda] text-xl mb-4">Programming Languages</h3>
-                    <ul>
-                        <li>Java</li>
-                        <li>Python</li>
-                        <li>C</li>
-                        <li>C++</li>
-                    </ul>
+        <!-- Projects -->
+        <section id="projects" class="py-16 animate-section">
+            <h2 class="section-title">Projects</h2>
+            <p class="mb-6 max-w-2xl">Only my own work is listed here. Projects I fork to study are credited to their original authors and are not presented as mine.</p>
+            <div class="flex flex-wrap gap-3 mb-8" id="project-filters">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="tools">Tools</button>
+                <button class="filter-btn" data-filter="systems">Systems</button>
+                <button class="filter-btn" data-filter="mobile">Mobile</button>
+                <button class="filter-btn" data-filter="infra">Infrastructure</button>
+            </div>
+            <div class="grid md:grid-cols-2 gap-6" id="project-grid">
+
+                <article class="project-card tools" data-category="tools">
+                    <div class="flex justify-between items-start mb-3">
+                        <h3 class="project-title">contextpack</h3>
+                        <span class="tag">npm v0.2.0</span>
+                    </div>
+                    <p class="mb-4">A zero-dependency CLI that packs a repository into a token-budgeted Markdown file for LLMs. Reserves headroom for the answer, caps oversized files and turns them into structural outlines instead of dropping them. 43 tests passing.</p>
+                    <div class="project-links">
+                        <a href="https://github.com/fadiuniv1/contextpack" target="_blank" rel="noopener">GitHub <i class="fas fa-arrow-up-right-from-square"></i></a>
+                        <a href="https://www.npmjs.com/package/contextpack-cli" target="_blank" rel="noopener">npm <i class="fas fa-arrow-up-right-from-square"></i></a>
+                    </div>
+                </article>
+
+                <article class="project-card systems" data-category="systems">
+                    <div class="flex justify-between items-start mb-3">
+                        <h3 class="project-title">Agent Bridge</h3>
+                        <span class="tag">Python · FastAPI</span>
+                    </div>
+                    <p class="mb-4">A local agent runtime for Ubuntu with async chat jobs, SSE streaming, SQLite session memory, file and task APIs, hardened systemd units, timers and a one-command installer. Reachable from the Android app over Tailscale.</p>
+                    <div class="project-links">
+                        <a href="https://github.com/fadiuniv1/agent-bridge-public" target="_blank" rel="noopener">GitHub <i class="fas fa-arrow-up-right-from-square"></i></a>
+                    </div>
+                </article>
+
+                <article class="project-card mobile" data-category="mobile">
+                    <div class="flex justify-between items-start mb-3">
+                        <h3 class="project-title">MY Local AI</h3>
+                        <span class="tag">Kotlin · Compose</span>
+                    </div>
+                    <p class="mb-4">A Jetpack Compose Android client for the bridge. Live token streaming, inline tool activity, session continuity, prompt queue, file browser, diff cards, offline reconnect, and full Hebrew/Arabic RTL UI. 30 unit tests passing.</p>
+                    <div class="project-links">
+                        <a href="https://github.com/fadiuniv1/MY_local_AI_project_public" target="_blank" rel="noopener">GitHub <i class="fas fa-arrow-up-right-from-square"></i></a>
+                    </div>
+                </article>
+
+                <article class="project-card tools" data-category="tools">
+                    <div class="flex justify-between items-start mb-3">
+                        <h3 class="project-title">npm-posture</h3>
+                        <span class="tag">npm 0.1.0</span>
+                    </div>
+                    <p class="mb-4">A zero-dependency checker for npm v12 security defaults. Finds lifecycle scripts, auth tokens in local .npmrc, git/remote dependencies and lockfile drift, then prints a copy-paste fix for each finding. JSON output for CI.</p>
+                    <div class="project-links">
+                        <a href="https://github.com/fadiuniv1/npm-posture" target="_blank" rel="noopener">GitHub <i class="fas fa-arrow-up-right-from-square"></i></a>
+                        <a href="https://www.npmjs.com/package/npm-posture" target="_blank" rel="noopener">npm <i class="fas fa-arrow-up-right-from-square"></i></a>
+                    </div>
+                </article>
+
+                <article class="project-card infra" data-category="infra">
+                    <div class="flex justify-between items-start mb-3">
+                        <h3 class="project-title">Cross-platform infrastructure lab</h3>
+                        <span class="tag">Skyware · Tsofen</span>
+                    </div>
+                    <p class="mb-4">Final industrial project: a virtualised lab on Hyper-V with Windows Server and Ubuntu Server 24.04, DHCP reservations, IIS, hostname resolution, and PowerShell/Bash health checks with automatic recovery via Task Scheduler and systemd timers.</p>
+                    <div class="project-links">
+                        <a href="https://www.linkedin.com/in/fadi1as/" target="_blank" rel="noopener">Details on LinkedIn <i class="fas fa-arrow-up-right-from-square"></i></a>
+                    </div>
+                </article>
+
+                <article class="project-card tools" data-category="tools">
+                    <div class="flex justify-between items-start mb-3">
+                        <h3 class="project-title">Python utilities</h3>
+                        <span class="tag">Python</span>
+                    </div>
+                    <p class="mb-4">Small scripts with binary decision boundaries: a log analyser for QA work and an Instagram username availability checker. Built to solve one problem each, with no framework attached.</p>
+                    <div class="project-links">
+                        <a href="https://github.com/fadiuniv1/qa-log-analyzer" target="_blank" rel="noopener">qa-log-analyzer <i class="fas fa-arrow-up-right-from-square"></i></a>
+                        <a href="https://github.com/fadiuniv1/ig_username_checker" target="_blank" rel="noopener">ig_username_checker <i class="fas fa-arrow-up-right-from-square"></i></a>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- Skills -->
+        <section id="skills" class="py-16 animate-section">
+            <h2 class="section-title">Skills</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+                <div class="skill-card">
+                    <h3 class="info-card-title">Languages</h3>
+                    <p>Java · Kotlin · Python · JavaScript · C · C# · Bash · PowerShell</p>
                 </div>
-                <div class="bg-[#112240] p-6 rounded">
-                    <h3 class="text-[#64ffda] text-xl mb-4">Web Technologies</h3>
-                    <ul>
-                        <li>HTML</li>
-                        <li>CSS</li>
-                        <li>JavaScript</li>
-                    </ul>
+                <div class="skill-card">
+                    <h3 class="info-card-title">Systems</h3>
+                    <p>Linux · systemd · Hyper-V · Windows Server · DHCP · IIS · Tailscale</p>
                 </div>
-                <div class="bg-[#112240] p-6 rounded">
-                    <h3 class="text-[#64ffda] text-xl mb-4">Tools & Platforms</h3>
-                    <ul>
-                        <li>Git & GitHub</li>
-                        <li>Android Studio</li>
-                        <li>Linux</li>
-                        <li>SQL (Basic)</li>
-                    </ul>
+                <div class="skill-card">
+                    <h3 class="info-card-title">Frameworks</h3>
+                    <p>FastAPI · Jetpack Compose · SQLite · Node.js · Room · WorkManager</p>
+                </div>
+                <div class="skill-card">
+                    <h3 class="info-card-title">Practices</h3>
+                    <p>Zero-dependency CLIs · Token budgeting · Testing · CI · Secret redaction</p>
                 </div>
             </div>
         </section>
 
-        <!-- Projects Section -->
-        <section id="projects" class="mb-16">
-            <h2 class="text-white text-3xl mb-8">Projects</h2>
-            <div class="grid md:grid-cols-2 gap-6">
-                <div class="bg-[#112240] p-6 rounded">
-                    <h3 class="text-[#64ffda] text-xl mb-4">Android Development</h3>
-                    <p>Specialized in creating Android applications using Java and XML.</p>
-                    <a href="#" class="text-[#64ffda] hover:underline">View Projects</a>
-                </div>
-                <div class="bg-[#112240] p-6 rounded">
-                    <h3 class="text-[#64ffda] text-xl mb-4">Python & Linux Projects</h3>
-                    <p>Exploring various projects in Python and Linux system development.</p>
-                    <a href="#" class="text-[#64ffda] hover:underline">View Projects</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section id="contact" class="text-center">
-            <h2 class="text-white text-3xl mb-8">Get In Touch</h2>
+        <!-- Contact -->
+        <section id="contact" class="py-20 text-center animate-section">
+            <h2 class="section-title mb-4">Let's build something reliable</h2>
             <p class="max-w-2xl mx-auto mb-8">
-                I'm currently open to new opportunities and collaborations. Feel free to reach out 
-                if you'd like to discuss a project, have a question, or just want to connect!
+                I'm looking for a junior software, DevOps or platform engineering role.
+                If you're building developer tools, infrastructure or local-first AI, I'd like to talk.
             </p>
-            <div class="flex justify-center space-x-6 mb-8">
-                <a href="mailto:fadiuniv1@gmail.com" class="text-[#64ffda] text-2xl hover:text-white">
-                    <i class="fas fa-envelope"></i>
-                </a>
-                <a href="https://linkedin.com/in/fadi1as" target="_blank" class="text-[#64ffda] text-2xl hover:text-white">
-                    <i class="fab fa-linkedin"></i>
-                </a>
-                <a href="https://github.com/fadiuniv1" target="_blank" class="text-[#64ffda] text-2xl hover:text-white">
-                    <i class="fab fa-github"></i>
-                </a>
-                <a href="https://youtube.com/Snow2Master" target="_blank" class="text-[#64ffda] text-2xl hover:text-white">
-                    <i class="fab fa-youtube"></i>
-                </a>
+            <div class="flex justify-center flex-wrap gap-6 mb-8 text-2xl">
+                <a href="mailto:fadiuniv1@gmail.com" class="social-link" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                <a href="https://linkedin.com/in/fadi1as" target="_blank" rel="noopener" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/fadiuniv1" target="_blank" rel="noopener" class="social-link" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://x.com/Snow2Master" target="_blank" rel="noopener" class="social-link" aria-label="X"><i class="fab fa-twitter"></i></a>
+                <a href="https://youtube.com/Snow2Master" target="_blank" rel="noopener" class="social-link" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
             </div>
-            <a href="mailto:fadiuniv1@gmail.com" class="border border-[#64ffda] text-[#64ffda] px-6 py-4 rounded hover:bg-[#64ffda] hover:text-[#0a192f] transition">
-                Send Me an Email
-            </a>
+            <a href="mailto:fadiuniv1@gmail.com" class="btn-primary inline-block">Send Me an Email</a>
         </section>
 
-        <!-- Footer -->
-        <footer class="text-center py-8 text-sm">
-            <p>&copy; 2024 Fadi. All Rights Reserved.</p>
+        <footer class="py-8 text-sm border-t border-[#112240]">
+            <div class="flex flex-wrap justify-between gap-4">
+                <span>© <span id="year"></span> Fadi Abu Saleh</span>
+                <span>Built with plain HTML, CSS and JavaScript.</span>
+            </div>
         </footer>
+
     </div>
+    <script src="script.js"></script>
 </body>
 </html>

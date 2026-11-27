@@ -1,33 +1,46 @@
-# Fadi Abu Saleh's Portfolio
+# Fadi Abu Saleh — Portfolio
 
-Welcome to the personal portfolio website of Fadi Abu Saleh, a dedicated software engineer with a strong focus on mobile and web development. This website showcases my skills, projects, and contact information.
+A static portfolio site for my software engineering work. Live at
+[fadiuniv1.github.io/fadi-portfolio](https://fadiuniv1.github.io/fadi-portfolio/).
 
-## Technologies Used
+## What this site shows
 
-- HTML
-- CSS
-- JavaScript
+- **Featured work:** contextpack, Agent Bridge, MY Local AI, npm-posture, a cross-platform
+  infrastructure lab, and small Python utilities.
+- **Skills:** the languages, systems, frameworks and practices I actually use — Java, Kotlin,
+  Python, JavaScript, C/C#, Linux, systemd, FastAPI, Jetpack Compose and SQLite.
+- **Availability:** open to junior software, DevOps and platform engineering roles.
 
-## Features
+Forked repositories used for study are deliberately excluded. Credit stays with their authors.
 
-- Smooth scrolling navigation
-- Responsive design
-- Contact form with validation
-- Links to social media profiles
+## Files
 
-## Sections
+| File | Purpose |
+| --- | --- |
+| `index.html` | All page content and section structure |
+| `styles.css` | Theme, cards, buttons, reveals and typing cursor |
+| `script.js` | Typewriter subtitle, scroll reveals, smooth anchors, project filter |
+| `hero-bg.webp` | Original background image (not currently referenced) |
 
-- **Home**: Introduction and links to GitHub and contact form.
-- **About**: Detailed information about my background and skills.
-- **Skills**: Showcase of technical skills.
-- **Projects**: Gallery of projects with descriptions and links.
-- **Contact**: Contact form and social media links.
+## Local preview
 
-## How to Use
+No build step and no dependencies:
 
-1. Clone the repository.
-2. Open `index.html` in your web browser to view the portfolio.
+~~~bash
+git clone https://github.com/fadiuniv1/fadi-portfolio.git
+cd fadi-portfolio
+python -m http.server 8000
+~~~
 
-## Contact
+Open http://localhost:8000.
 
-For any inquiries, please reach out via the contact form on the website or connect with me on [LinkedIn](https://www.linkedin.com/in/fadi1as) and [GitHub](https://github.com/fadiuniv1).
+## Deployment
+
+Pushes to `main` are published by GitHub Pages at the URL above. There is no CI step.
+
+## Keeping it accurate
+
+When a project is added, removed or published, update `index.html` in three places:
+the stats row, the project cards, and the links. Keep the "Only my own work is listed here"
+promise true. Check npm versions with `npm view <package> version` before writing a version
+into a card.
