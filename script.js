@@ -75,7 +75,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Live numbers from GitHub and npm, cached for the session.
+    // Stats are generated daily by GitHub Actions into stats.json. Fetching a
+    // same-origin file avoids browser rate limits on the GitHub REST API.
     async function loadLiveStats() {
         const note = document.getElementById('live-stats-note');
         const set = (id, value) => {
@@ -83,38 +84,23 @@ document.addEventListener('DOMContentLoaded', () => {
             if (el) el.textContent = value;
         };
         try {
-            let data = null;
-            const cached = sessionStorage.getItem('portfolio-stats');
-            if (cached) data = JSON.parse(cached);
-            if (!data) {
-                const [userRes, reposRes, npmRes] = await Promise.all([
-                    fetch('https://api.github.com/users/fadiuniv1'),
-                    fetch('https://api.github.com/users/fadiuniv1/repos?per_page=100&sort=updated'),
-                    fetch('https://registry.npmjs.org/contextpack-cli/latest'),
-                ]);
-                if (!userRes.ok || !reposRes.ok || !npmRes.ok) throw new Error('Live data unavailable');
-                const user = await userRes.json();
-                const repos = await reposRes.json();
-                const npm = await npmRes.json();
-                data = {
-                    repos: user.public_repos,
-                    stars: repos.reduce((sum, repo) => sum + repo.stargazers_count, 0),
-                    original: repos.filter((repo) => !repo.fork).length,
-                    release: npm.version,
-                };
-                sessionStorage.setItem('portfolio-stats', JSON.stringify(data));
-            }
+            const response = await fetch('stats.json', { cache: 'no-store' });
+            if (!response.ok) throw new Error('Stats unavailable');
+            const data = await response.json();
             set('stat-repos', data.repos);
             set('stat-stars', data.stars);
             set('stat-original', data.original);
             set('stat-release', data.release);
-            if (note) note.textContent = 'Live data from GitHub and npm.';
+            if (note) {
+                const date = data.updated ? new Date(data.updated).toLocaleDateString() : 'recently';
+                note.textContent = `Numbers from GitHub and npm, updated ${date}.`;
+            }
         } catch (error) {
             set('stat-repos', '—');
             set('stat-stars', '—');
             set('stat-original', '—');
             set('stat-release', '—');
-            if (note) note.textContent = 'Live statistics are temporarily unavailable.';
+            if (note) note.textContent = 'Statistics are temporarily unavailable.';
         }
     }
     loadLiveStats();

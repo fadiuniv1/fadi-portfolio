@@ -23,13 +23,15 @@ Forked repositories used for study are deliberately excluded. Credit stays with 
 | `assets/og-image.png` | OpenGraph / Twitter preview image |
 | `favicon.svg` | Site icon |
 | `.github/workflows/check-links.yml` | CI link checker for `index.html` |
+| `.github/workflows/update-stats.yml` | Daily job that regenerates `stats.json` |
+| `stats.json` | Generated numbers used by the stats strip |
 | `hero-bg.webp` | Original background image (not currently referenced) |
 
 ## Live data and extras
 
-The stats strip calls the GitHub REST API and the npm registry in the browser, then caches
-the result in `sessionStorage` for the session. If either service is unavailable it shows a
-neutral placeholder instead of stale numbers.
+The stats strip reads `stats.json`, which a scheduled GitHub Action regenerates daily from
+the GitHub REST API and the npm registry. This avoids client-side rate limits. If the file
+cannot be read, the site shows neutral placeholders instead of stale numbers.
 
 The Notes section holds short technical posts first published on X and LinkedIn. New notes
 should keep a link to the original post.

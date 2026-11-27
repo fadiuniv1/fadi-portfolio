@@ -1,0 +1,43 @@
+name: Update stats
+
+on:
+  schedule:
+    - cron: '17 6 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Generate stats.json
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          repos=$(gh api 'users/fadiuniv1/repos?per_page=100&sort=updated')
+          public=$(gh api users/fadiuniv1 --jq '.public_repos')
+          stars=$(printf '%s' "$repos" | jq '[.[].stargazers_count] | add // 0')
+          original=$(printf '%s' "$repos" | jq '[.[] | select(.fork == false)] | length')
+          release=$(curl -s https://registry.npmjs.org/contextpack-cli/latest | jq -r .version)
+          updated=$(date -u +%Y-%m-%dT%H:%M:%SZ)
+          jq -n \
+            --argjson repos "$public" \
+            --argjson stars "$stars" \
+            --argjson original "$original" \
+            --arg release "$release" \
+            --arg updated "$updated" \
+            '{repos:$repos,stars:$stars,original:$original,release:$release,updated:$updated}' > stats.json
+
+      - name: Commit stats
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add stats.json
+          if ! git diff --cached --quiet; then
+            git commit -m "chore: update portfolio stats"
+            git push
+          fi
