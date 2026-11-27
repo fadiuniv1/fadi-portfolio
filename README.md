@@ -20,6 +20,7 @@ Forked repositories used for study are deliberately excluded. Credit stays with 
 | `index.html` | All page content and section structure |
 | `styles.css` | Theme, cards, buttons, reveals and typing cursor |
 | `script.js` | Typewriter subtitle, scroll reveals, smooth anchors, project filter |
+| `Fadi_Abu_Saleh_CV.pdf` | Downloadable CV linked from the hero, projects and contact sections |
 | `assets/og-image.png` | OpenGraph / Twitter preview image |
 | `favicon.svg` | Site icon |
 | `.github/workflows/check-links.yml` | CI link checker for `index.html` |
