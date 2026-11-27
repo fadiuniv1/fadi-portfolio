@@ -75,6 +75,50 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // Live numbers from GitHub and npm, cached for the session.
+    async function loadLiveStats() {
+        const note = document.getElementById('live-stats-note');
+        const set = (id, value) => {
+            const el = document.getElementById(id);
+            if (el) el.textContent = value;
+        };
+        try {
+            let data = null;
+            const cached = sessionStorage.getItem('portfolio-stats');
+            if (cached) data = JSON.parse(cached);
+            if (!data) {
+                const [userRes, reposRes, npmRes] = await Promise.all([
+                    fetch('https://api.github.com/users/fadiuniv1'),
+                    fetch('https://api.github.com/users/fadiuniv1/repos?per_page=100&sort=updated'),
+                    fetch('https://registry.npmjs.org/contextpack-cli/latest'),
+                ]);
+                if (!userRes.ok || !reposRes.ok || !npmRes.ok) throw new Error('Live data unavailable');
+                const user = await userRes.json();
+                const repos = await reposRes.json();
+                const npm = await npmRes.json();
+                data = {
+                    repos: user.public_repos,
+                    stars: repos.reduce((sum, repo) => sum + repo.stargazers_count, 0),
+                    original: repos.filter((repo) => !repo.fork).length,
+                    release: npm.version,
+                };
+                sessionStorage.setItem('portfolio-stats', JSON.stringify(data));
+            }
+            set('stat-repos', data.repos);
+            set('stat-stars', data.stars);
+            set('stat-original', data.original);
+            set('stat-release', data.release);
+            if (note) note.textContent = 'Live data from GitHub and npm.';
+        } catch (error) {
+            set('stat-repos', '—');
+            set('stat-stars', '—');
+            set('stat-original', '—');
+            set('stat-release', '—');
+            if (note) note.textContent = 'Live statistics are temporarily unavailable.';
+        }
+    }
+    loadLiveStats();
+
     // Footer year
     const year = document.getElementById('year');
     if (year) year.textContent = String(new Date().getFullYear());

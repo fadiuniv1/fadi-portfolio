@@ -1,0 +1,21 @@
+name: Check links
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  link-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check links in index.html
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: --verbose --no-progress --exclude-mail --exclude-loopback ./index.html
+          fail: true

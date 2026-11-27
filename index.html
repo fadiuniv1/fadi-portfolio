@@ -5,12 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fadi Abu Saleh — Software Engineer & Developer Tools</title>
     <meta name="description" content="Fadi Abu Saleh is a software engineering student building zero-dependency developer tools, Linux automation and local-first AI systems.">
+    <meta name="theme-color" content="#0a192f">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Fadi Abu Saleh — Software Engineer & Developer Tools">
+    <meta property="og:description" content="Zero-dependency developer tools, Linux automation and local-first AI. Open to junior software, DevOps and platform roles.">
+    <meta property="og:url" content="https://fadiuniv1.github.io/fadi-portfolio/">
+    <meta property="og:image" content="https://fadiuniv1.github.io/fadi-portfolio/assets/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Fadi Abu Saleh — Software Engineer & Developer Tools">
+    <meta name="twitter:description" content="Zero-dependency developer tools, Linux automation and local-first AI.">
+    <meta name="twitter:image" content="https://fadiuniv1.github.io/fadi-portfolio/assets/og-image.png">
+    <link rel="canonical" href="https://fadiuniv1.github.io/fadi-portfolio/">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body class="bg-[#0a192f] text-[#8892b0] font-sans">
+    <a href="#main" class="skip-link">Skip to main content</a>
     <div class="container mx-auto px-6 max-w-6xl">
+    <main id="main">
 
         <!-- Navigation -->
         <header class="flex justify-between items-center py-8">
@@ -22,6 +36,7 @@
                     <li><a href="#about" class="nav-link">About</a></li>
                     <li><a href="#projects" class="nav-link">Projects</a></li>
                     <li><a href="#skills" class="nav-link">Skills</a></li>
+                    <li><a href="#notes" class="nav-link">Notes</a></li>
                     <li><a href="#contact" class="nav-link">Contact</a></li>
                 </ul>
             </nav>
@@ -46,12 +61,13 @@
                         <i class="fab fa-github mr-2"></i>GitHub
                     </a>
                 </div>
-                <div class="flex flex-wrap gap-8 mt-12 stats">
-                    <div><span class="stat-number">4</span><span class="stat-label">original projects</span></div>
-                    <div><span class="stat-number">2</span><span class="stat-label">npm packages</span></div>
-                    <div><span class="stat-number">3</span><span class="stat-label">languages I work in</span></div>
-                    <div><span class="stat-number">2027</span><span class="stat-label">expected graduation</span></div>
+                <div class="flex flex-wrap gap-8 mt-12 stats" id="live-stats" aria-label="Live GitHub statistics">
+                    <div><span class="stat-number" id="stat-repos">…</span><span class="stat-label">public repos</span></div>
+                    <div><span class="stat-number" id="stat-stars">…</span><span class="stat-label">stars earned</span></div>
+                    <div><span class="stat-number" id="stat-original">…</span><span class="stat-label">original projects</span></div>
+                    <div><span class="stat-number" id="stat-release">…</span><span class="stat-label">latest npm release</span></div>
                 </div>
+                <p class="text-xs mt-3" id="live-stats-note">Loading live numbers from GitHub and npm…</p>
             </div>
         </section>
 
@@ -197,6 +213,51 @@
             </div>
         </section>
 
+        <!-- Notes -->
+        <section id="notes" class="py-16 animate-section">
+            <h2 class="section-title">Notes</h2>
+            <p class="mb-8 max-w-2xl">Short lessons from building in public. These started as posts on X and LinkedIn.</p>
+            <div class="grid md:grid-cols-2 gap-4">
+
+                <details class="note">
+                    <summary>4 things I learned reading other people's open source</summary>
+                    <p>Local-first is a feature: tools that run offline earn trust immediately. Checkpoints beat full autonomy: the best agent projects stop and ask a human before consequential steps. Docs are part of the code: one copy-paste command did more for adoption than any clever implementation. Small and boring wins: a one-file tool with a test is easier to learn from than a 50-module framework.</p>
+                    <a href="https://x.com/Snow2Master/status/2126071331758514462" target="_blank" rel="noopener">Original thread <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+                </details>
+
+                <details class="note">
+                    <summary>Most "context window errors" are "I pasted node_modules"</summary>
+                    <p>The fix is not a bigger window. Rank files by usefulness, respect .gitignore, redact secrets, and omit the boring stuff instead of truncating at random. That became contextpack: a local CLI that fits a real prompt into a real budget, with headroom left for the answer.</p>
+                    <a href="https://github.com/fadiuniv1/contextpack" target="_blank" rel="noopener">Read the tool <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+                </details>
+
+                <details class="note">
+                    <summary>Stop filling the context window to the last token</summary>
+                    <p>A prompt that consumes the entire window leaves the model nowhere to answer. I changed contextpack to reserve 12% for the question and response, cap any single file at 25% of the usable budget, and show a structural outline instead of dropping oversized files. The result is a usable prompt, not a full window of raw text.</p>
+                    <a href="https://www.npmjs.com/package/contextpack-cli" target="_blank" rel="noopener">contextpack v0.2.0 <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+                </details>
+
+                <details class="note">
+                    <summary>GitHub badges are not a hiring signal</summary>
+                    <p>YOLO means you merged a PR without review. Quickdraw means you closed an issue within five minutes. Funny badges, but not the signal I want to send. The lesson: speed is easy, judgement isn't. Every PR gets a reader, every tool gets a test, every issue stays open 24 hours before I close it.</p>
+                    <a href="https://x.com/Snow2Master/status/2126071534137823734" target="_blank" rel="noopener">Original post <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+                </details>
+
+                <details class="note">
+                    <summary>Three Linux habits that saved more time than any tutorial</summary>
+                    <p>Read the man page before searching. Run git status before every commit. Keep a scratch file of commands you always forget and lose. The third one is the one that compounds — and it is basically session memory for your future self.</p>
+                    <a href="https://github.com/fadiuniv1/agent-bridge-public" target="_blank" rel="noopener">Automation work <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+                </details>
+
+                <details class="note">
+                    <summary>What --diff is actually for</summary>
+                    <p>Packing only the files you changed turns a 30,000-token code-review prompt into a few hundred. contextpack includes modified, staged and untracked text files relative to a git ref, so the model reviews your work instead of your dependencies.</p>
+                    <a href="https://github.com/fadiuniv1/contextpack#readme" target="_blank" rel="noopener">Tutorial <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+                </details>
+
+            </div>
+        </section>
+
         <!-- Contact -->
         <section id="contact" class="py-20 text-center animate-section">
             <h2 class="section-title mb-4">Let's build something reliable</h2>
@@ -221,6 +282,7 @@
             </div>
         </footer>
 
+    </main>
     </div>
     <script src="script.js"></script>
 </body>

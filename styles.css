@@ -23,6 +23,25 @@ body {
 
 .highlight { color: var(--accent); }
 
+/* Skip link for keyboard users */
+.skip-link {
+    position: absolute;
+    left: -9999px;
+    top: 0;
+    z-index: 100;
+    background: var(--accent);
+    color: var(--bg-primary);
+    padding: .7rem 1rem;
+    border-radius: 0 0 .25rem .25rem;
+    font-weight: 600;
+}
+.skip-link:focus { left: 0; }
+
+:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+}
+
 .nav-link {
     color: var(--text-bright);
     transition: color .2s ease;
@@ -121,6 +140,26 @@ body {
 .project-links { display: flex; flex-wrap: wrap; gap: 1rem; font-size: .9rem; }
 .project-links a { color: var(--accent); }
 .project-links a:hover { text-decoration: underline; }
+
+/* Notes / micro-blog */
+.note {
+    background: var(--bg-card);
+    border: 1px solid #233554;
+    border-radius: .35rem;
+    padding: 1rem 1.25rem;
+}
+.note summary {
+    cursor: pointer;
+    color: var(--text-bright);
+    font-weight: 600;
+    list-style: none;
+}
+.note summary::-webkit-details-marker { display: none; }
+.note summary::before { content: '+ '; color: var(--accent); }
+.note[open] summary::before { content: '− '; }
+.note p { font-size: .93rem; margin-top: .8rem; }
+.note a { color: var(--accent); font-size: .85rem; display: inline-block; margin-top: .5rem; }
+.note a:hover { text-decoration: underline; }
 
 .social-link {
     color: var(--accent);
